@@ -32,4 +32,20 @@ class FizzBuzzTest {
         assertEquals("Fizz", n.compruebaFizzBuzz(6));
     }
 
+    @Test
+    public void testNum_7_8_9(){
+        FizzBuzz n = new FizzBuzz(7);
+        FizzBuzz n2 = new FizzBuzz(8);
+        FizzBuzz n3 = new FizzBuzz(9);
+        assertEquals("7", n.compruebaFizzBuzz(7));
+        assertEquals("8", n2.compruebaFizzBuzz(8));
+        assertEquals("Fizz", n3.compruebaFizzBuzz(9));
+    }
+
+    @Test
+    public void testNum_10(){
+        FizzBuzz n = new FizzBuzz(10);
+        assertEquals("Buzz", n.compruebaFizzBuzz(10));
+    }
+
 }
