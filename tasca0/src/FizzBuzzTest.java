@@ -48,4 +48,21 @@ class FizzBuzzTest {
         assertEquals("Buzz", n.compruebaFizzBuzz(10));
     }
 
+    @Test
+    public void testNum_11_Al_14() {
+        FizzBuzz n = new FizzBuzz(11);
+        FizzBuzz n2 = new FizzBuzz(12);
+        FizzBuzz n3 = new FizzBuzz(13);
+        FizzBuzz n4 = new FizzBuzz(14);
+        assertEquals("11", n.compruebaFizzBuzz(11));
+        assertEquals("Fizz", n2.compruebaFizzBuzz(12));
+        assertEquals("13", n3.compruebaFizzBuzz(13));
+        assertEquals("14", n4.compruebaFizzBuzz(14));
+    }
+
+    @Test
+    public void testNum_15(){
+        FizzBuzz n = new FizzBuzz(15);
+        assertEquals("FizzBuzz", n.compruebaFizzBuzz(15));
+    }
 }
