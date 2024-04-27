@@ -14,7 +14,6 @@ public class OperacionesTDD {
             return 0;
         }
         String last = s.substring(s.length() - 1);
-
         String[] nums = s.split(",");
         for (String n: nums) {
             valor = Integer.valueOf(n);
@@ -22,9 +21,9 @@ public class OperacionesTDD {
                 if (!last.matches("[0-9]")) {
                     System.err.println("Numero negativo no permitido");
                 }
-                return -1;
-            }
-            if(valor >= 0){
+                resultado = -1;
+                break;
+            } else if(valor >= 0){
                 if (valor >= 1000){
                     valor = 0;
                     System.err.println("Numero superior a 1000 ignorado");
