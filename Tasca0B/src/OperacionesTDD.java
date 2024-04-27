@@ -13,9 +13,17 @@ public class OperacionesTDD {
         if (s.length() == 0){
             return 0;
         }
+        String last = s.substring(s.length() - 1);
+
         String[] nums = s.split(",");
         for (String n: nums) {
             valor = Integer.valueOf(n);
+            if (!last.matches("[0-9]") || valor < 0){
+                if (!last.matches("[0-9]")) {
+                    System.err.println("Numero negativo no permitido");
+                }
+                return -1;
+            }
             if(valor >= 0){
                 resultado += valor;
             }

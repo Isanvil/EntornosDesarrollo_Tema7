@@ -26,4 +26,16 @@ class OperacionesTDDTest {
         OperacionesTDD op = new OperacionesTDD();
         assertEquals(4, op.suma("1,1,2"));
     }
+
+    @Test
+    public void test_separadorSinNumero(){
+        OperacionesTDD op = new OperacionesTDD();
+        assertEquals(-1, op.suma("1,2,"));
+    }
+
+    @Test
+    public void test_valorNegativo(){
+        OperacionesTDD op = new OperacionesTDD();
+        assertEquals(-1, op.suma("1,2,-2"));
+    }
 }
