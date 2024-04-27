@@ -38,4 +38,10 @@ class OperacionesTDDTest {
         OperacionesTDD op = new OperacionesTDD();
         assertEquals(-1, op.suma("1,2,-2"));
     }
+
+    @Test
+    public void test_valorMayorQue1000(){
+        OperacionesTDD op = new OperacionesTDD();
+        assertEquals(5, op.suma("5,1002"));
+    }
 }

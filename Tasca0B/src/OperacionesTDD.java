@@ -25,6 +25,10 @@ public class OperacionesTDD {
                 return -1;
             }
             if(valor >= 0){
+                if (valor >= 1000){
+                    valor = 0;
+                    System.err.println("Numero superior a 1000 ignorado");
+                }
                 resultado += valor;
             }
         }
