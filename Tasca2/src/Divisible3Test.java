@@ -33,4 +33,10 @@ class Divisible3Test {
         Divisible3 d = new Divisible3();
         assertEquals("NO", d.isDivisibleEntre3(10));
     }
+
+    @Test
+    public void testEntradaTrece(){
+        Divisible3 d = new Divisible3();
+        assertEquals("NO", d.isDivisibleEntre3(13));
+    }
 }
