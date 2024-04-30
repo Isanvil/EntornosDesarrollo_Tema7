@@ -12,6 +12,12 @@ public class Zapping {
         if (comprobarValidezRangoCanal(origen, destino)){
             if(origen == destino){
                 salida = 0;
+            } else {
+                if(comprobarOrigenMayor(origen, destino)){
+                    return origen - destino;
+                } else {
+                    return destino - origen;
+                }
             }
         }
 
@@ -23,6 +29,13 @@ public class Zapping {
             return false;
         }
         return true;
+    }
+
+    public boolean comprobarOrigenMayor(int origen, int destino){
+        if (origen > destino){
+            return true;
+        }
+        return false;
     }
 
 }
