@@ -9,4 +9,10 @@ class Divisible3Test {
         Divisible3 d = new Divisible3();
         assertEquals("SI", d.isDivisibleEntre3(2));
     }
+
+    @Test
+    public void testEntradaSeis(){
+        Divisible3 d = new Divisible3();
+        assertEquals("SI", d.isDivisibleEntre3(6));
+    }
 }
