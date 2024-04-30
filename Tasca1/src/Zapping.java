@@ -23,10 +23,10 @@ public class Zapping {
             if(origen == destino){
                 salida = 0;
             } else {
-                if (comprobarDiferenciaDe49(canalMenor, canalMayor)){
-                    salida = MAX_CHANEL - (canalMayor - canalMenor);
+                if ( MAX_CHANEL - (canalMayor - canalMenor) < comprobarDiferenciaDe49(canalMenor, canalMayor)){
+                    salida = ( MAX_CHANEL - (canalMayor - canalMenor));
                 } else {
-                    salida = canalMayor - canalMenor;
+                    salida = comprobarDiferenciaDe49(canalMenor, canalMayor);
                 }
             }
         }
@@ -47,11 +47,8 @@ public class Zapping {
         return false;
     }
 
-    public boolean comprobarDiferenciaDe49(int menor, int mayor){
-        if (mayor - menor == 49){
-            return true;
-        }
-        return false;
+    public int comprobarDiferenciaDe49(int menor, int mayor){
+        return mayor - menor;
     }
 
 }

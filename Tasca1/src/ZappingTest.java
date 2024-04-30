@@ -26,4 +26,10 @@ class ZappingTest {
         Zapping z = new Zapping();
         assertEquals(20, z.salida(10, 30));
     }
+
+    @Test
+    public void testOrigenCincoDestino63(){
+        Zapping z = new Zapping();
+        assertEquals(41, z.salida(5, 63));
+    }
 }
