@@ -108,22 +108,41 @@ class PasswordVerifyTest {
 
     @Test
     public void test_holacaracola12() {
+        PasswordVerify p = new PasswordVerify();
+        EsCorrecto fe = p.verificaContrasenya("holacaracola12");
 
+        assertEquals(false, fe.isCorrect());
+        assertEquals("La contrasenya ha de contenir almenys una lletra majúscula\n" +
+                "La contrasenya ha de contenir almenys un caràcter especial", fe.getMensaje());
     }
 
     @Test
     public void test_holacaracolaExclamacion() {
+        PasswordVerify p = new PasswordVerify();
+        EsCorrecto fe = p.verificaContrasenya("holacaracola!");
 
+        assertEquals(false, fe.isCorrect());
+        assertEquals("La contrasenya ha de contenir almenys 2 números\n" +
+                "La contrasenya ha de contenir almenys una lletra majúscula", fe.getMensaje());
     }
 
     @Test
     public void test_holacaracolA() {
+        PasswordVerify p = new PasswordVerify();
+        EsCorrecto fe = p.verificaContrasenya("holacaracolA");
 
+        assertEquals(false, fe.isCorrect());
+        assertEquals("La contrasenya ha de contenir almenys 2 números\n" +
+                "La contrasenya ha de contenir almenys un caràcter especial", fe.getMensaje());
     }
 
     @Test
-    public void test_hol12A() {
+    public void test_hol12AExclamacion() {
+        PasswordVerify p = new PasswordVerify();
+        EsCorrecto fe = p.verificaContrasenya("hol12A!");
 
+        assertEquals(false, fe.isCorrect());
+        assertEquals("La contrasenya ha de tenir almenys 8 caràcters", fe.getMensaje());
     }
 
     @Test
