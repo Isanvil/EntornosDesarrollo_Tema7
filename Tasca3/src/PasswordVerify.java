@@ -2,42 +2,33 @@ public class PasswordVerify {
     private int cantidadNumeros = 0;
     private int cantidadMayusucla = 0;
     private int cantidadCaracterEspecial = 0;
+    private String mensajeSalida = "";
+    private boolean cumpleRequisito = true;
+    private final String MSG_ERROR_8_CARACTERES = "La contrasenya ha de tenir almenys 8 caràcters\n";
+    private final String MSG_ERROR_2_NUMEROS = "La contrasenya ha de contenir almenys 2 números\n";
+    private final String MSG_ERROR_FALTA_MAYUSCULA = "La contrasenya ha de contenir almenys una lletra majúscula\n";
+    private final String MSG_ERROR_FALTA_CARACTER_ESPECIAL = "La contrasenya ha de contenir almenys un caràcter especial";
     public PasswordVerify(){
 
     }
 
     public EsCorrecto verificaContrasenya(String password){
-        String mensajeSalida = "";
-        boolean cumpleRequisito = true;
 
         cuentaCantidadesDeAtributos(password);
 
         if (password.length() == 0){
-            return new EsCorrecto(false, "La contrasenya ha de tenir almenys 8 caràcters\n" +
-                    "La contrasenya ha de contenir almenys 2 números\n" +
-                    "La contrasenya ha de contenir almenys una lletra majúscula\n" +
-                    "La contrasenya ha de contenir almenys un caràcter especial");
-        }
-        if (password.length() < 8 && password.length() > 0){
-            cumpleRequisito = false;
-            mensajeSalida+= "La contrasenya ha de tenir almenys 8 caràcters\n";
-        }
-        if (cantidadNumeros < 2){
-            mensajeSalida+= "La contrasenya ha de contenir almenys 2 números\n";
-            cumpleRequisito = false;
-        }
-        if (cantidadMayusucla < 1){
-            mensajeSalida+= "La contrasenya ha de contenir almenys una lletra majúscula\n";
-            cumpleRequisito = false;
-        }
-        if (cantidadCaracterEspecial < 1){
-            mensajeSalida+= "La contrasenya ha de contenir almenys un caràcter especial";
-            cumpleRequisito = false;
+            return new EsCorrecto(false, MSG_ERROR_8_CARACTERES +
+                    MSG_ERROR_2_NUMEROS +
+                    MSG_ERROR_FALTA_MAYUSCULA +
+                    MSG_ERROR_FALTA_CARACTER_ESPECIAL);
         }
 
-        if (mensajeSalida.length() != 0 && mensajeSalida.substring(mensajeSalida.length() - 1).equals("\n")){
+        anyadePromptdeErrores(password);
+
+        if (mensajeAcabaEnSaltoDeLinea()){
             mensajeSalida = mensajeSalida.substring(0, mensajeSalida.length() - 1);
         }
+
         return new EsCorrecto(cumpleRequisito, mensajeSalida);
     }
 
@@ -53,5 +44,31 @@ public class PasswordVerify {
                 cantidadCaracterEspecial++;
             }
         }
+    }
+
+    public void anyadePromptdeErrores(String password){
+        if (password.length() < 8 && password.length() > 0){
+            cumpleRequisito = false;
+            mensajeSalida+= MSG_ERROR_8_CARACTERES;
+        }
+        if (cantidadNumeros < 2){
+            mensajeSalida+= MSG_ERROR_2_NUMEROS;
+            cumpleRequisito = false;
+        }
+        if (cantidadMayusucla < 1){
+            mensajeSalida+= MSG_ERROR_FALTA_MAYUSCULA;
+            cumpleRequisito = false;
+        }
+        if (cantidadCaracterEspecial < 1){
+            mensajeSalida+= MSG_ERROR_FALTA_CARACTER_ESPECIAL;
+            cumpleRequisito = false;
+        }
+    }
+
+    public boolean mensajeAcabaEnSaltoDeLinea(){
+        if (mensajeSalida.length() != 0 && mensajeSalida.substring(mensajeSalida.length() - 1).equals("\n")){
+            return true;
+        }
+        return false;
     }
 }
