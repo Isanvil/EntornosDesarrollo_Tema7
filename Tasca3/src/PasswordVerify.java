@@ -35,7 +35,7 @@ public class PasswordVerify {
             cumpleRequisito = false;
         }
 
-        if (mensajeSalida.substring(mensajeSalida.length() - 1).equals("\n")){
+        if (mensajeSalida.length() != 0 && mensajeSalida.substring(mensajeSalida.length() - 1).equals("\n")){
             mensajeSalida = mensajeSalida.substring(0, mensajeSalida.length() - 1);
         }
         return new EsCorrecto(cumpleRequisito, mensajeSalida);

@@ -174,11 +174,19 @@ class PasswordVerifyTest {
 
     @Test
     public void test_holacaracola12AExclamacion() {
+        PasswordVerify p = new PasswordVerify();
+        EsCorrecto fe = p.verificaContrasenya("holacaracola12A!");
 
+        assertEquals(true, fe.isCorrect());
+        assertEquals("", fe.getMensaje());
     }
 
     @Test
     void test_hashP4blit0cl4v0uncl4vit0Hash() {
+        PasswordVerify p = new PasswordVerify();
+        EsCorrecto fe = p.verificaContrasenya("#P4blit0cl4v0uncl4vit0#");
 
+        assertEquals(true, fe.isCorrect());
+        assertEquals("", fe.getMensaje());
     }
 }
