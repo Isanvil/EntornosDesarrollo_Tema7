@@ -10,17 +10,7 @@ public class PasswordVerify {
         String mensajeSalida = "";
         boolean cumpleRequisito = true;
 
-        for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) >= 48 && password.charAt(i) <= 57){
-                cantidadNumeros++;
-            }
-            if (password.charAt(i) >= 65 && password.charAt(i) <= 90){
-                cantidadMayusucla++;
-            }
-            if (password.matches("[#!]")){
-                cantidadCaracterEspecial++;
-            }
-        }
+        cuentaCantidadesDeAtributos(password);
 
         if (password.length() == 0){
             return new EsCorrecto(false, "La contrasenya ha de tenir almenys 8 caràcters\n" +
@@ -32,7 +22,7 @@ public class PasswordVerify {
             cumpleRequisito = false;
             mensajeSalida+= "La contrasenya ha de tenir almenys 8 caràcters\n";
         }
-        if (cantidadNumeros <= 2){
+        if (cantidadNumeros < 2){
             mensajeSalida+= "La contrasenya ha de contenir almenys 2 números\n";
             cumpleRequisito = false;
         }
@@ -44,11 +34,20 @@ public class PasswordVerify {
             mensajeSalida+= "La contrasenya ha de contenir almenys un caràcter especial";
             cumpleRequisito = false;
         }
-
         return new EsCorrecto(cumpleRequisito, mensajeSalida);
     }
-    
-    
 
-
+    public void cuentaCantidadesDeAtributos(String password){
+        for (int i = 0; i < password.length(); i++) {
+            if (password.charAt(i) >= 48 && password.charAt(i) <= 57){
+                cantidadNumeros++;
+            }
+            if (password.charAt(i) >= 65 && password.charAt(i) <= 90){
+                cantidadMayusucla++;
+            }
+            if (password.matches("[#!]")){
+                cantidadCaracterEspecial++;
+            }
+        }
+    }
 }
