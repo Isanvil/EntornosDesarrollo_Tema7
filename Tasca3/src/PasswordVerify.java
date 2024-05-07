@@ -26,11 +26,11 @@ public class PasswordVerify {
             mensajeSalida+= "La contrasenya ha de contenir almenys 2 números\n";
             cumpleRequisito = false;
         }
-        if (cantidadMayusucla <= 1){
+        if (cantidadMayusucla < 1){
             mensajeSalida+= "La contrasenya ha de contenir almenys una lletra majúscula\n";
             cumpleRequisito = false;
         }
-        if (cantidadCaracterEspecial <= 1){
+        if (cantidadCaracterEspecial < 1){
             mensajeSalida+= "La contrasenya ha de contenir almenys un caràcter especial";
             cumpleRequisito = false;
         }
