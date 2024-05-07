@@ -34,6 +34,10 @@ public class PasswordVerify {
             mensajeSalida+= "La contrasenya ha de contenir almenys un caràcter especial";
             cumpleRequisito = false;
         }
+
+        if (mensajeSalida.substring(mensajeSalida.length() - 1).equals("\n")){
+            mensajeSalida = mensajeSalida.substring(0, mensajeSalida.length() - 1);
+        }
         return new EsCorrecto(cumpleRequisito, mensajeSalida);
     }
 
@@ -45,7 +49,7 @@ public class PasswordVerify {
             if (password.charAt(i) >= 65 && password.charAt(i) <= 90){
                 cantidadMayusucla++;
             }
-            if (password.matches("[#!]")){
+            if (password.charAt(i) >= 33 && password.charAt(i) <= 47){
                 cantidadCaracterEspecial++;
             }
         }

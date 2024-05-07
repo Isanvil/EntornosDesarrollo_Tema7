@@ -4,6 +4,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 
 class PasswordVerifyTest {
+
     @Test
     public void testVacio() {
         PasswordVerify p = new PasswordVerify();
@@ -27,8 +28,6 @@ class PasswordVerifyTest {
                 "La contrasenya ha de contenir almenys una lletra majúscula\n" +
                 "La contrasenya ha de contenir almenys un caràcter especial", fe.getMensaje());
     }
-
-    ///ToDo Desde aquí
 
     @Test
     public void test_holacaracola() {
@@ -68,7 +67,13 @@ class PasswordVerifyTest {
 
     @Test
     public void test_holaExcalamacion() {
+        PasswordVerify p = new PasswordVerify();
+        EsCorrecto fe = p.verificaContrasenya("hola!");
 
+        assertEquals(false, fe.isCorrect());
+        assertEquals("La contrasenya ha de tenir almenys 8 caràcters\n" +
+                "La contrasenya ha de contenir almenys 2 números\n" +
+                "La contrasenya ha de contenir almenys una lletra majúscula", fe.getMensaje());
     }
 
     @Test
